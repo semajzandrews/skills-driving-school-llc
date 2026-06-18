@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills Driving School | Behind the Wheel Lessons in Orange, NJ</title>
+<meta name="description" content="Skills Driving School on Main Street in Orange, NJ. Patient, certified instructors guide you from your first lesson to a passed road test. Six hour behind the wheel, road test prep, and refreshers." />
+
+<!-- Fonts: Tanker (display) + General Sans (body) via Fontshare -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --green:#1E7A46;        /* road-sign green */
+    --green-deep:#155c34;
+    --green-glow:#27a35e;
+    --yellow:#F4B400;       /* safety yellow */
+    --yellow-soft:#ffd54a;
+    --base:#0F1A14;         /* dark */
+    --base-2:#13241b;
+    --base-3:#1a3024;
+    --ink:#eef5ef;
+    --ink-soft:#bcd0c2;
+    --ink-mute:#8aa495;
+    --line:rgba(255,255,255,.10);
+    --line-2:rgba(255,255,255,.16);
+    --maxw:1180px;
+    --r:18px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--base);
+    color:var(--ink);
+    font-family:"General Sans",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  h1,h2,h3{margin:0;font-weight:400;line-height:1.04;letter-spacing:.5px}
+  .display{font-family:"Tanker",sans-serif;text-transform:uppercase}
+  p{margin:0}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{
+    font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--yellow);display:inline-flex;gap:9px;align-items:center;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--yellow);display:inline-block;border-radius:2px}
+
+  /* ---------- Road dashes accent ---------- */
+  .roadline{
+    height:6px;width:100%;
+    background:repeating-linear-gradient(90deg,var(--yellow) 0 32px,transparent 32px 60px);
+    opacity:.85;border-radius:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    transition:background .35s var(--ease),border-color .35s,backdrop-filter .35s;
+    border-bottom:1px solid transparent;
+  }
+  header.nav.scrolled{
+    background:rgba(11,18,14,.86);
+    backdrop-filter:blur(14px) saturate(1.2);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .brand .sign{
+    width:42px;height:42px;flex:0 0 auto;border-radius:11px;
+    background:linear-gradient(150deg,var(--green-glow),var(--green-deep));
+    display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.18);
+    box-shadow:0 6px 18px rgba(30,122,70,.35);
+  }
+  .brand .sign svg{width:24px;height:24px}
+  .brand .name{display:flex;flex-direction:column;line-height:1;min-width:0}
+  .brand .name b{font-family:"Tanker",sans-serif;font-weight:400;font-size:19px;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}
+  .brand .name span{font-size:10.5px;letter-spacing:.18em;color:var(--ink-mute);text-transform:uppercase;margin-top:3px}
+
+  nav.links{display:flex;align-items:center;gap:28px}
+  nav.links a{font-size:14.5px;font-weight:500;color:var(--ink-soft);position:relative;padding:4px 0;transition:color .2s}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--yellow);transition:width .25s var(--ease)}
+  nav.links a:hover{color:var(--ink)}
+  nav.links a:hover::after{width:100%}
+
+  .call-cta{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--yellow);color:#241a00;font-weight:700;font-size:14.5px;
+    padding:11px 18px;border-radius:999px;letter-spacing:.01em;
+    transition:transform .2s var(--ease),box-shadow .2s;
+    box-shadow:0 8px 22px rgba(244,180,0,.28);white-space:nowrap;
+  }
+  .call-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(244,180,0,.4)}
+  .call-cta svg{width:17px;height:17px}
+  .call-cta .lbl{display:inline}
+
+  .menu-btn{display:none}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:148px 0 70px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 90% at 85% -10%,rgba(30,122,70,.30),transparent 55%),
+      radial-gradient(90% 80% at 5% 110%,rgba(244,180,0,.08),transparent 60%),
+      var(--base);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center}
+  .hero h1{font-size:clamp(44px,7.4vw,86px);margin:18px 0 0;font-family:"Tanker",sans-serif;text-transform:uppercase;letter-spacing:.5px}
+  .hero h1 .hl{color:var(--yellow)}
+  .hero .sub{margin:22px 0 0;color:var(--ink-soft);font-size:clamp(16px,2.4vw,19px);max-width:33ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15.5px;
+    padding:15px 26px;border-radius:999px;transition:transform .2s var(--ease),box-shadow .25s,background .25s;cursor:pointer;border:none;
+  }
+  .btn.primary{background:var(--green);color:#fff;box-shadow:0 10px 30px rgba(30,122,70,.4)}
+  .btn.primary:hover{transform:translateY(-2px);background:var(--green-glow);box-shadow:0 14px 36px rgba(30,122,70,.5)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2)}
+  .btn.ghost:hover{border-color:var(--yellow);color:var(--yellow);transform:translateY(-2px)}
+  .btn svg{width:18px;height:18px}
+
+  .hero-stats{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}
+  .hero-stats .st b{font-family:"Tanker",sans-serif;font-size:34px;display:block;line-height:1;color:#fff}
+  .hero-stats .st span{font-size:12.5px;letter-spacing:.06em;color:var(--ink-mute);text-transform:uppercase;margin-top:6px;display:block}
+
+  .hero-photo{position:relative}
+  .hero-photo .frame{
+    position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/4.4;
+    border:1px solid var(--line-2);box-shadow:0 30px 70px rgba(0,0,0,.55);
+  }
+  .hero-photo .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(1.04)}
+  .hero-photo .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(9,15,11,.55))}
+  .hero-badge{
+    position:absolute;left:-14px;bottom:26px;z-index:3;
+    background:var(--base-2);border:1px solid var(--line-2);border-radius:16px;
+    padding:14px 18px;display:flex;align-items:center;gap:13px;
+    box-shadow:0 18px 40px rgba(0,0,0,.5);
+  }
+  .hero-badge .ring{
+    width:46px;height:46px;border-radius:50%;flex:0 0 auto;
+    background:conic-gradient(var(--yellow) 0 96%,rgba(255,255,255,.12) 96% 100%);
+    display:grid;place-items:center;
+  }
+  .hero-badge .ring i{width:36px;height:36px;border-radius:50%;background:var(--base-2);display:grid;place-items:center;font-style:normal;font-family:"Tanker",sans-serif;font-size:13px;color:var(--yellow)}
+  .hero-badge .t b{display:block;font-size:14px;font-weight:600;color:#fff}
+  .hero-badge .t span{font-size:12px;color:var(--ink-mute)}
+
+  .status-pill{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    padding:7px 14px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);
+  }
+  .status-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-mute);box-shadow:0 0 0 0 rgba(0,0,0,0)}
+  .status-pill.open .dot{background:#37d77f;box-shadow:0 0 0 4px rgba(55,215,127,.18);animation:pulse 2.4s infinite}
+  .status-pill.closed .dot{background:#ff7a5c}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(55,215,127,.18)}50%{box-shadow:0 0 0 7px rgba(55,215,127,.05)}}
+
+  /* trust strip */
+  .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;background:rgba(255,255,255,.02)}
+  .trust-strip .wrap{display:flex;flex-wrap:wrap;gap:14px 34px;justify-content:center;align-items:center;padding-top:18px;padding-bottom:18px}
+  .trust-strip .ti{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink-soft);font-weight:500}
+  .trust-strip .ti svg{width:18px;height:18px;color:var(--green-glow);flex:0 0 auto}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative;padding:88px 0}
+  .sec-head{max-width:660px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(30px,5vw,50px);margin-top:16px;font-family:"Tanker",sans-serif;text-transform:uppercase;letter-spacing:.5px}
+  .sec-head p{margin-top:16px;color:var(--ink-soft);font-size:17px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- ROADMAP (SIGNATURE) ---------- */
+  #roadmap{background:linear-gradient(180deg,var(--base) 0%,var(--base-2) 100%)}
+  .road-wrap{position:relative}
+  .road-canvas{position:relative;width:100%}
+  .road-svg{width:100%;height:auto;display:block;overflow:visible}
+  .road-bg{fill:none;stroke:rgba(255,255,255,.09);stroke-width:34;stroke-linecap:round}
+  .road-dash{fill:none;stroke:var(--yellow);stroke-width:3.4;stroke-linecap:round;stroke-dasharray:2 26;opacity:.8}
+  .road-progress{fill:none;stroke:url(#roadgrad);stroke-width:7;stroke-linecap:round;
+    stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset .1s linear}
+  .car-dot{transition:opacity .3s}
+  .stop{cursor:pointer}
+  .stop .node{fill:var(--base-3);stroke:var(--line-2);stroke-width:2.5;transition:fill .3s,stroke .3s,r .3s}
+  .stop.done .node{fill:var(--green);stroke:var(--green-glow)}
+  .stop.active .node{fill:var(--yellow);stroke:#fff;stroke-width:3.5}
+  .stop .num{font-family:"Tanker",sans-serif;font-size:18px;fill:var(--ink);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .stop.active .num{fill:#241a00}
+  .stop.done .num{fill:#fff}
+
+  .road-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+  .rc{
+    background:var(--base-3);border:1px solid var(--line);border-radius:16px;padding:20px 18px;
+    transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;position:relative;overflow:hidden;
+  }
+  .rc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--line-2);transition:background .3s}
+  .rc[data-on="true"]{border-color:var(--green-glow);box-shadow:0 14px 34px rgba(30,122,70,.22);transform:translateY(-4px)}
+  .rc[data-on="true"]::before{background:var(--yellow)}
+  .rc .step{font-size:12px;letter-spacing:.16em;color:var(--yellow);text-transform:uppercase;font-weight:600}
+  .rc h3{font-size:19px;margin-top:9px;font-weight:600;font-family:"General Sans",sans-serif;text-transform:none;letter-spacing:0;line-height:1.2}
+  .rc p{font-size:14px;color:var(--ink-soft);margin-top:9px}
+  .road-control{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .road-control .hint{font-size:13.5px;color:var(--ink-mute)}
+
+  /* ---------- PROGRAMS ---------- */
+  .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .prog{
+    background:linear-gradient(180deg,var(--base-2),var(--base));
+    border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;position:relative;
+    transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+  }
+  .prog:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 22px 50px rgba(0,0,0,.4)}
+  .prog .ic{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;
+    background:rgba(30,122,70,.16);border:1px solid rgba(39,163,94,.35)}
+  .prog .ic svg{width:26px;height:26px;color:var(--green-glow)}
+  .prog.feat .ic{background:rgba(244,180,0,.16);border-color:rgba(244,180,0,.4)}
+  .prog.feat .ic svg{color:var(--yellow)}
+  .prog h3{font-size:21px;font-weight:600;font-family:"General Sans",sans-serif;text-transform:none;letter-spacing:0}
+  .prog p{margin-top:11px;color:var(--ink-soft);font-size:15px}
+  .prog .meta{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--ink-soft)}
+  .prog .tag.hot{background:rgba(244,180,0,.14);border-color:rgba(244,180,0,.35);color:var(--yellow-soft)}
+
+  /* ---------- WHY / SPLIT ---------- */
+  #why{background:var(--base-2)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .split .photo{border-radius:22px;overflow:hidden;border:1px solid var(--line-2);aspect-ratio:5/4;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .split .photo img{width:100%;height:100%;object-fit:cover}
+  .feat-list{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:16px}
+  .feat-list li{display:flex;gap:15px;align-items:flex-start}
+  .feat-list .chk{width:30px;height:30px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;background:rgba(244,180,0,.14);border:1px solid rgba(244,180,0,.34)}
+  .feat-list .chk svg{width:16px;height:16px;color:var(--yellow)}
+  .feat-list b{display:block;font-weight:600;color:#fff;font-size:16px}
+  .feat-list span{color:var(--ink-soft);font-size:14.5px}
+
+  /* ---------- REVIEWS (strong rating - lead with proof) ---------- */
+  .rev-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+  .rating-block{display:flex;align-items:center;gap:18px}
+  .rating-num{font-family:"Tanker",sans-serif;font-size:62px;line-height:.85;color:#fff}
+  .stars{display:flex;gap:3px}
+  .stars svg{width:20px;height:20px;color:var(--yellow)}
+  .rating-meta{font-size:14px;color:var(--ink-soft)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .rev{background:var(--base-2);border:1px solid var(--line);border-radius:16px;padding:24px;transition:border-color .3s,transform .3s}
+  .rev:hover{border-color:var(--line-2);transform:translateY(-3px)}
+  .rev .qs{display:flex;gap:2px;margin-bottom:13px}
+  .rev .qs svg{width:15px;height:15px;color:var(--yellow)}
+  .rev p{font-size:15px;color:var(--ink);line-height:1.55}
+  .rev .who{margin-top:16px;display:flex;align-items:center;gap:11px}
+  .rev .who .av{width:36px;height:36px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-family:"Tanker",sans-serif;font-size:15px;color:var(--base);background:var(--yellow)}
+  .rev .who b{font-size:14px;font-weight:600;display:block}
+  .rev .who span{font-size:12px;color:var(--ink-mute)}
+
+  /* ---------- VISIT / MAP ---------- */
+  #visit{background:var(--base-2)}
+  .visit-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:stretch}
+  .info-card{background:var(--base);border:1px solid var(--line);border-radius:var(--r);padding:30px}
+  .info-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ic{width:38px;height:38px;border-radius:10px;flex:0 0 auto;display:grid;place-items:center;background:rgba(30,122,70,.16);border:1px solid rgba(39,163,94,.32)}
+  .info-row .ic svg{width:18px;height:18px;color:var(--green-glow)}
+  .info-row b{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+  .info-row .v{font-size:16px;color:#fff;margin-top:3px;font-weight:500}
+  .info-row .v a:hover{color:var(--yellow)}
+  .hours-list{margin-top:4px}
+  .hours-list .hr{display:flex;justify-content:space-between;font-size:14.5px;padding:5px 0;color:var(--ink-soft)}
+  .hours-list .hr.today{color:#fff;font-weight:600}
+  .hours-list .hr.today .d::after{content:"Today";font-size:10px;background:var(--yellow);color:#241a00;padding:2px 7px;border-radius:999px;margin-left:9px;font-weight:700;letter-spacing:.04em}
+
+  .map-frame{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);min-height:360px;height:100%}
+  .map-frame iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+  .map-frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 70%,rgba(15,26,20,.5)),rgba(30,122,70,.12)}
+
+  /* ---------- CTA BAND ---------- */
+  #book{background:linear-gradient(135deg,var(--green-deep),var(--green));position:relative;overflow:hidden}
+  #book::before{content:"";position:absolute;inset:0;background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 40px,transparent 40px 80px);opacity:.4}
+  #book .wrap{position:relative;text-align:center;max-width:760px}
+  #book h2{font-size:clamp(32px,5.5vw,56px);color:#fff;font-family:"Tanker",sans-serif;text-transform:uppercase;letter-spacing:.5px}
+  #book p{color:rgba(255,255,255,.9);margin-top:18px;font-size:18px}
+  #book .hero-cta{justify-content:center}
+  #book .btn.primary{background:var(--yellow);color:#241a00;box-shadow:0 12px 34px rgba(0,0,0,.28)}
+  #book .btn.primary:hover{background:var(--yellow-soft)}
+  #book .btn.ghost{border-color:rgba(255,255,255,.55);color:#fff}
+  #book .btn.ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.1)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--base);border-top:1px solid var(--line);padding:60px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+  .foot-brand .brand{margin-bottom:16px}
+  .foot-brand p{color:var(--ink-soft);font-size:14.5px;max-width:34ch}
+  .foot-col h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 14px;font-weight:600}
+  .foot-col a,.foot-col p{display:block;color:var(--ink-soft);font-size:14.5px;margin-bottom:9px;transition:color .2s}
+  .foot-col a:hover{color:var(--yellow)}
+  .foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-bottom .cp{font-size:13px;color:var(--ink-mute)}
+  .built{font-size:13px;color:var(--ink-mute);display:inline-flex;align-items:center;gap:7px}
+  .built a{color:var(--ink-soft);font-weight:600;border-bottom:1px dotted var(--ink-mute);padding-bottom:1px}
+  .built a:hover{color:var(--yellow);border-color:var(--yellow)}
+  .built .spark{width:14px;height:14px;color:var(--yellow)}
+
+  /* ---------- MOBILE CALL FAB ---------- */
+  .call-fab{
+    position:fixed;right:16px;bottom:16px;z-index:70;width:56px;height:56px;border-radius:50%;
+    background:var(--yellow);color:#241a00;display:none;place-items:center;
+    box-shadow:0 12px 30px rgba(244,180,0,.45);transition:transform .2s var(--ease);
+  }
+  .call-fab:hover{transform:scale(1.06)}
+  .call-fab svg{width:24px;height:24px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:42px}
+    .hero-photo{max-width:460px}
+    .split{grid-template-columns:1fr;gap:32px}
+    .visit-grid{grid-template-columns:1fr}
+    .road-cards{grid-template-columns:repeat(2,1fr)}
+    .prog-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:760px){
+    nav.links{display:none}
+    .menu-btn{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid var(--line-2);cursor:pointer}
+    .menu-btn svg{width:20px;height:20px;color:var(--ink)}
+    .call-cta .lbl{display:none}
+    .call-cta{padding:0;width:46px;height:46px;justify-content:center;border-radius:50%}
+    .call-cta svg{width:19px;height:19px}
+    .call-fab{display:grid}
+    .mobile-sheet{display:block}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    section{padding:64px 0}
+    .hero{padding:128px 0 56px}
+    .road-cards,.prog-grid,.rev-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-stats{gap:22px}
+    .hero-stats .st b{font-size:28px}
+    .rating-num{font-size:50px}
+    .hero-badge{left:8px}
+  }
+
+  /* mobile nav sheet */
+  .mobile-sheet{
+    position:fixed;inset:0;z-index:65;background:rgba(9,14,11,.96);backdrop-filter:blur(8px);
+    display:none;flex-direction:column;padding:96px 28px 40px;gap:6px;
+    opacity:0;pointer-events:none;transition:opacity .3s;
+  }
+  .mobile-sheet.open{opacity:1;pointer-events:auto}
+  .mobile-sheet a{font-family:"Tanker",sans-serif;text-transform:uppercase;font-size:30px;letter-spacing:.6px;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line)}
+  .mobile-sheet a:active{color:var(--yellow)}
+  .sheet-close{position:absolute;top:22px;right:22px;width:42px;height:42px;border:1px solid var(--line-2);border-radius:11px;background:transparent;display:grid;place-items:center;cursor:pointer}
+  .sheet-close svg{width:20px;height:20px;color:var(--ink)}
+  .sheet-call{margin-top:auto;background:var(--yellow);color:#241a00 !important;border-radius:14px !important;text-align:center;text-transform:none !important;font-family:"General Sans",sans-serif !important;font-size:17px !important;border:none !important;font-weight:700;padding:16px !important}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Skills Driving School home">
+      <span class="sign" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 16l1.5-5.5A2 2 0 018.4 9h7.2a2 2 0 011.9 1.5L19 16M5 16h14M5 16v2.5a1 1 0 001 1h1a1 1 0 001-1V16m11 0v2.5a1 1 0 01-1 1h-1a1 1 0 01-1-1V16" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="13.5" r="1" fill="#fff"/><circle cx="16" cy="13.5" r="1" fill="#fff"/></svg>
+      </span>
+      <span class="name"><b>Skills</b><span>Driving School</span></span>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="#roadmap">The Road</a>
+      <a href="#programs">Lessons</a>
+      <a href="#why">Why Skills</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="tel:+19736324334" class="call-cta" aria-label="Call Skills Driving School at (973) 632-4334">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15a1.5 1.5 0 001.5-1.5v-2.6a1.2 1.2 0 00-.95-1.17l-3.3-.7a1.2 1.2 0 00-1.2.5l-.8 1.1a11.5 11.5 0 01-5-5l1.1-.8a1.2 1.2 0 00.5-1.2l-.7-3.3A1.2 1.2 0 008.1 3.5H5.5A1.5 1.5 0 004 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span class="lbl">(973) 632-4334</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile sheet -->
+<div class="mobile-sheet" id="sheet" aria-hidden="true">
+  <button class="sheet-close" id="sheetClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <a href="#roadmap" data-sheet>The Road</a>
+  <a href="#programs" data-sheet>Lessons</a>
+  <a href="#why" data-sheet>Why Skills</a>
+  <a href="#reviews" data-sheet>Reviews</a>
+  <a href="#visit" data-sheet>Visit</a>
+  <a href="tel:+19736324334" class="sheet-call" data-sheet>Call (973) 632-4334</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Main Street, Orange NJ</span>
+      <h1>Your road<br>to a <span class="hl">license</span><br>starts here.</h1>
+      <p class="sub">Patient, NJ certified instructors who get nervous first timers comfortable behind the wheel and ready to pass the road test. Right here on Main Street.</p>
+
+      <div class="hero-cta">
+        <a href="#book" class="btn primary">
+          Book your first lesson
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#roadmap" class="btn ghost">See the road ahead</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="st"><b>4.9</b><span>Average rating</span></div>
+        <div class="st"><b>39+</b><span>Happy reviews</span></div>
+        <div class="st"><b>6 hr</b><span>Behind the wheel</span></div>
+      </div>
+
+      <div style="margin-top:30px"><span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Checking hours</span></span></div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80" alt="A driver's hands on the steering wheel at dusk, city lights ahead through the windshield" loading="eager" />
+      </div>
+      <div class="hero-badge">
+        <span class="ring" aria-hidden="true"><i>NJ</i></span>
+        <span class="t"><b>State certified</b><span>Licensed driving school</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust strip -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <div class="ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Six hour GDL certified</div>
+      <div class="ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 5 5.5.8-4 4 .9 5.6L12 20l-4.9 2.4.9-5.6-4-4 5.5-.8L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>4.9 stars from drivers like you</div>
+      <div class="ti"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Flexible day and evening times</div>
+      <div class="ti"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Pick up and drop off available</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROADMAP (SIGNATURE) ============ -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The journey</span>
+      <h2>Watch the road to your license</h2>
+      <p>New Jersey lays out a clear path from your first permit to a full license. Drive the car along the route, or tap a stop to see what happens at each milestone.</p>
+    </div>
+
+    <div class="road-wrap reveal">
+      <div class="road-canvas">
+        <svg class="road-svg" id="roadSvg" viewBox="0 0 1000 240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Road map of the four steps from permit to full license">
+          <defs>
+            <linearGradient id="roadgrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#27a35e"/><stop offset="1" stop-color="#F4B400"/>
+            </linearGradient>
+            <filter id="carsh" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+            </filter>
+          </defs>
+
+          <!-- the road path -->
+          <path id="roadPath" class="road-bg" d="M70 185 C 230 185 250 60 400 60 S 590 185 640 185 S 820 70 930 70"/>
+          <path class="road-dash" d="M70 185 C 230 185 250 60 400 60 S 590 185 640 185 S 820 70 930 70"/>
+          <path id="roadProg" class="road-progress" d="M70 185 C 230 185 250 60 400 60 S 590 185 640 185 S 820 70 930 70"/>
+
+          <!-- car -->
+          <g id="car" class="car-dot" filter="url(#carsh)">
+            <g transform="translate(-17,-12)">
+              <rect x="2" y="9" width="30" height="11" rx="4" fill="#F4B400"/>
+              <path d="M8 9 L12 3 H22 L26 9 Z" fill="#fff8e0"/>
+              <rect x="11" y="4.5" width="12" height="5" rx="1.5" fill="#bcd0c2"/>
+              <circle cx="9" cy="20" r="3.4" fill="#0F1A14" stroke="#fff" stroke-width="1.2"/>
+              <circle cx="25" cy="20" r="3.4" fill="#0F1A14" stroke="#fff" stroke-width="1.2"/>
+              <circle cx="31" cy="13" r="1.6" fill="#fff"/>
+            </g>
+          </g>
+
+          <!-- stops -->
+          <g class="stop" data-i="0" tabindex="0" role="button" aria-label="Step 1, the learner's permit">
+            <circle class="node" cx="70" cy="185" r="20"/><text class="num" x="70" y="185">1</text>
+          </g>
+          <g class="stop" data-i="1" tabindex="0" role="button" aria-label="Step 2, six hours behind the wheel">
+            <circle class="node" cx="400" cy="60" r="20"/><text class="num" x="400" y="60">2</text>
+          </g>
+          <g class="stop" data-i="2" tabindex="0" role="button" aria-label="Step 3, the road test">
+            <circle class="node" cx="640" cy="185" r="20"/><text class="num" x="640" y="185">3</text>
+          </g>
+          <g class="stop" data-i="3" tabindex="0" role="button" aria-label="Step 4, your full license">
+            <circle class="node" cx="930" cy="70" r="20"/><text class="num" x="930" y="70">4</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="road-cards" id="roadCards">
+        <article class="rc" data-card="0">
+          <span class="step">Step 01</span>
+          <h3>Learner's permit</h3>
+          <p>Pass your written knowledge and vision test at the MVC. You are 16 and ready. We help you study so the first try counts.</p>
+        </article>
+        <article class="rc" data-card="1">
+          <span class="step">Step 02</span>
+          <h3>Six hours behind the wheel</h3>
+          <p>The required GDL training, done in our dual control car with a calm, certified instructor. This is where real confidence is built.</p>
+        </article>
+        <article class="rc" data-card="2">
+          <span class="step">Step 03</span>
+          <h3>The road test</h3>
+          <p>Parallel parking, the K turn, smooth control. We rehearse the exact maneuvers so test day feels like just another lesson.</p>
+        </article>
+        <article class="rc" data-card="3">
+          <span class="step">Step 04</span>
+          <h3>Your full license</h3>
+          <p>You pass, you drive, you are free. The keys are yours and the road is open. We will be cheering you on.</p>
+        </article>
+      </div>
+
+      <div class="road-control">
+        <button class="btn primary" id="driveBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>
+          Drive the route
+        </button>
+        <span class="hint">Tap a numbered stop to jump there.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Lessons and packages</span>
+      <h2>Pick the lesson that fits you</h2>
+      <p>Whether you are starting from zero, prepping for the road test, or shaking off the rust, there is a lane for you.</p>
+    </div>
+
+    <div class="prog-grid">
+      <article class="prog feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 16l1.5-5.5A2 2 0 018.4 9h7.2a2 2 0 011.9 1.5L19 16M5 16h14M5 16v2.5a1 1 0 001 1h1a1 1 0 001-1V16m11 0v2.5a1 1 0 01-1 1h-1a1 1 0 01-1-1V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="13.5" r="1" fill="currentColor"/><circle cx="16" cy="13.5" r="1" fill="currentColor"/></svg></div>
+        <h3>Six hour behind the wheel</h3>
+        <p>The NJ GDL requirement, taught in three calm sessions in our dual control car. Most popular with new teen drivers and their parents.</p>
+        <div class="meta"><span class="tag hot">Most requested</span><span class="tag">Teens and adults</span></div>
+      </article>
+
+      <article class="prog reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v9H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 15l4 3h8l4-3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Road test prep and rental</h3>
+        <p>We rehearse parallel parking and the K turn until they feel automatic, then bring you to your test in a car you already know.</p>
+        <div class="meta"><span class="tag">Pass focused</span><span class="tag">Car provided</span></div>
+      </article>
+
+      <article class="prog reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Adult and refresher lessons</h3>
+        <p>Licensed somewhere else, or away from the wheel for years? No judgment here. We meet you exactly where you are and build from there.</p>
+        <div class="meta"><span class="tag">All ages</span><span class="tag">One on one</span></div>
+      </article>
+
+      <article class="prog reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Nervous first timers welcome</h3>
+        <p>If the idea of merging or highways makes your stomach turn, you are our favorite student. Patience is the whole job.</p>
+        <div class="meta"><span class="tag">Anxiety friendly</span><span class="tag">Go your pace</span></div>
+      </article>
+
+      <article class="prog reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 19v-5h6v5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Pick up and drop off</h3>
+        <p>We can collect you from home, work, or school anywhere around Orange and East Orange so a lesson fits your real day.</p>
+        <div class="meta"><span class="tag">Local area</span><span class="tag">On your schedule</span></div>
+      </article>
+
+      <article class="prog reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l3-3h10l3 3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Knowledge test help</h3>
+        <p>Stuck on the permit written test? We walk you through New Jersey's rules and signs in plain language until it clicks.</p>
+        <div class="meta"><span class="tag">Permit ready</span><span class="tag">English support</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section id="why">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Why drivers choose us</span>
+      <h2 style="font-size:clamp(28px,4.6vw,46px);font-family:'Tanker',sans-serif;text-transform:uppercase;margin-top:16px;letter-spacing:.5px">Calm cars, patient teachers, real results</h2>
+      <p style="margin-top:18px;color:var(--ink-soft);font-size:16.5px">Skills Driving School has earned a 4.9 rating from local drivers for one simple reason. Our instructors are patient, our cars are dual control and safe, and we do not rush you onto the road before you are ready.</p>
+
+      <ul class="feat-list">
+        <li>
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><b>Dual control safety cars</b><span>A second brake on the instructor's side means you can try, fail safe, and learn without fear.</span></span>
+        </li>
+        <li>
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><b>Instructors who actually listen</b><span>We teach to your nerves and your pace, not a stopwatch. Confidence first, speed later.</span></span>
+        </li>
+        <li>
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><b>We know the local roads and the test</b><span>Same streets, same intersections, same maneuvers the examiner will ask for. No surprises.</span></span>
+        </li>
+        <li>
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><b>Right on Main Street</b><span>Easy to reach, easy to park, and a neighbor you can trust with your son or daughter.</span></span>
+        </li>
+      </ul>
+
+      <a href="#book" class="btn primary" style="margin-top:30px">Start with one lesson
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <div class="reveal" style="display:grid;gap:18px">
+      <div class="photo" style="aspect-ratio:5/3.6">
+        <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=900&q=80" alt="View from inside the car of the dashboard and steering wheel during an evening driving lesson" loading="lazy" />
+      </div>
+      <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:18px">
+        <div class="photo" style="aspect-ratio:1/1;margin:0">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=700&q=80" alt="A warm, smiling driving instructor ready to greet a new student" loading="lazy" />
+        </div>
+        <div class="photo" style="aspect-ratio:1/1;margin:0">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=700&q=80" alt="A handshake between instructor and student after a passed road test" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS (strong rating) ============ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="rev-top reveal">
+      <div>
+        <span class="eyebrow">What drivers say</span>
+        <div class="rating-block" style="margin-top:18px">
+          <span class="rating-num">4.9</span>
+          <div>
+            <div class="stars" aria-label="4.9 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg>
+            </div>
+            <p class="rating-meta">Based on 39 plus reviews from local drivers</p>
+          </div>
+        </div>
+      </div>
+      <a href="#book" class="btn ghost">Join them, book a lesson</a>
+    </div>
+
+    <div class="rev-grid">
+      <article class="rev reveal">
+        <div class="qs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg></div>
+        <p>I was terrified to even sit in the driver seat. My instructor was so patient that by the third lesson I was driving down Main Street on my own. Passed first try.</p>
+        <div class="who"><span class="av">T</span><span><b>A new driver</b><span>Orange, NJ</span></span></div>
+      </article>
+
+      <article class="rev reveal">
+        <div class="qs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg></div>
+        <p>Signed my daughter up for the six hour and the difference was night and day. Calm, professional, and they picked her up right from school. Highly recommend.</p>
+        <div class="who"><span class="av">P</span><span><b>A local parent</b><span>East Orange, NJ</span></span></div>
+      </article>
+
+      <article class="rev reveal">
+        <div class="qs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.4L12 17l-6 3.3 1.5-6.4-5-4.3 6.6-.6L12 2z"/></svg></div>
+        <p>I got my license in another country years ago and was scared of these roads. They got me road test ready in a couple of weeks. Worth every dollar.</p>
+        <div class="who"><span class="av">M</span><span><b>An adult learner</b><span>Orange, NJ</span></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Find us</span>
+      <h2>Come by, or call us first</h2>
+      <p>We are on Main Street in the heart of Orange, easy to reach by car, bus, or train.</p>
+    </div>
+
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><b>Address</b><div class="v">439 Main Street, Suite 104<br>Orange, NJ 07050</div></div>
+        </div>
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15a1.5 1.5 0 001.5-1.5v-2.6a1.2 1.2 0 00-.95-1.17l-3.3-.7a1.2 1.2 0 00-1.2.5l-.8 1.1a11.5 11.5 0 01-5-5l1.1-.8a1.2 1.2 0 00.5-1.2l-.7-3.3A1.2 1.2 0 008.1 3.5H5.5A1.5 1.5 0 004 5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <div><b>Phone</b><div class="v"><a href="tel:+19736324334">(973) 632-4334</a></div></div>
+        </div>
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <div style="flex:1">
+            <b style="display:flex;align-items:center;gap:10px">Hours <span class="status-pill" id="statusPill2" style="font-size:11px;padding:4px 10px"><span class="dot"></span><span id="statusText2">Hours</span></span></b>
+            <div class="hours-list" id="hoursList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame reveal">
+        <iframe
+          title="Skills Driving School location at 439 Main Street, Orange, NJ 07050"
+          src="https://www.google.com/maps?q=40.7741712,-74.2344042&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK CTA ============ -->
+<section id="book">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;color:#fff">Ready when you are</span>
+    <h2>Let's get you driving</h2>
+    <p>Call to book your first lesson or ask any question. Whether it is your very first time behind the wheel or your final push before the road test, the road starts with a single call.</p>
+    <div class="hero-cta" style="margin-top:34px">
+      <a href="tel:+19736324334" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15a1.5 1.5 0 001.5-1.5v-2.6a1.2 1.2 0 00-.95-1.17l-3.3-.7a1.2 1.2 0 00-1.2.5l-.8 1.1a11.5 11.5 0 01-5-5l1.1-.8a1.2 1.2 0 00.5-1.2l-.7-3.3A1.2 1.2 0 008.1 3.5H5.5A1.5 1.5 0 004 5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Call (973) 632-4334
+      </a>
+      <a href="#roadmap" class="btn ghost">See the steps again</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand" aria-label="Skills Driving School">
+          <span class="sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 16l1.5-5.5A2 2 0 018.4 9h7.2a2 2 0 011.9 1.5L19 16M5 16h14M5 16v2.5a1 1 0 001 1h1a1 1 0 001-1V16m11 0v2.5a1 1 0 01-1 1h-1a1 1 0 01-1-1V16" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="13.5" r="1" fill="#fff"/><circle cx="16" cy="13.5" r="1" fill="#fff"/></svg>
+          </span>
+          <span class="name"><b>Skills</b><span>Driving School</span></span>
+        </a>
+        <p>Patient, certified driving instruction on Main Street in Orange, New Jersey. From your first lesson to a passed road test, we are with you the whole way.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#roadmap">The road to your license</a>
+        <a href="#programs">Lessons and packages</a>
+        <a href="#why">Why choose Skills</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit us</a>
+      </div>
+
+      <div class="foot-col">
+        <h4>Get in touch</h4>
+        <p>439 Main Street, Suite 104<br>Orange, NJ 07050</p>
+        <a href="tel:+19736324334">(973) 632-4334</a>
+        <p id="footHours" style="color:var(--ink-mute)">Mon to Sat, 9 AM to 7 PM</p>
+        <a href="#book" style="color:var(--yellow);font-weight:600;margin-top:6px">Book a lesson &rarr;</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span class="cp">&copy; <span id="yr"></span> Skills Driving School. All rights reserved.</span>
+      <span class="built">
+        <svg class="spark" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 4.8L19 9l-4.5 2.2L12 16l-2.5-4.8L5 9l5.2-1.2L12 3z" fill="currentColor"/></svg>
+        Built by <a href="https://bysemaj.com" target="_blank" rel="noopener">bysemaj.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile call fab -->
+<a href="tel:+19736324334" class="call-fab" aria-label="Call Skills Driving School at (973) 632-4334">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15a1.5 1.5 0 001.5-1.5v-2.6a1.2 1.2 0 00-.95-1.17l-3.3-.7a1.2 1.2 0 00-1.2.5l-.8 1.1a11.5 11.5 0 01-5-5l1.1-.8a1.2 1.2 0 00.5-1.2l-.7-3.3A1.2 1.2 0 008.1 3.5H5.5A1.5 1.5 0 004 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- year ---------- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---------- nav scroll ---------- */
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 28); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- mobile sheet ---------- */
+  var sheet = document.getElementById('sheet');
+  var menuBtn = document.getElementById('menuBtn');
+  var sheetClose = document.getElementById('sheetClose');
+  function openSheet(){ sheet.classList.add('open'); sheet.setAttribute('aria-hidden','false'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeSheet(){ sheet.classList.remove('open'); sheet.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', openSheet);
+  sheetClose.addEventListener('click', closeSheet);
+  document.querySelectorAll('[data-sheet]').forEach(function(a){ a.addEventListener('click', closeSheet); });
+
+  /* ---------- reveal on scroll ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    el.style.transitionDelay = (i % 4) * 70 + 'ms';
+    io.observe(el);
+  });
+
+  /* ===================================================================
+     HOURS + OPEN/CLOSED  (America/New_York)
+     Mon to Fri 9 AM to 7 PM, Sat 9 AM to 5 PM, Sun closed
+  =================================================================== */
+  var HOURS = [
+    {d:'Sunday',    label:'Closed', open:null, close:null},
+    {d:'Monday',    label:'9 AM to 7 PM', open:9, close:19},
+    {d:'Tuesday',   label:'9 AM to 7 PM', open:9, close:19},
+    {d:'Wednesday', label:'9 AM to 7 PM', open:9, close:19},
+    {d:'Thursday',  label:'9 AM to 7 PM', open:9, close:19},
+    {d:'Friday',    label:'9 AM to 7 PM', open:9, close:19},
+    {d:'Saturday',  label:'9 AM to 5 PM', open:9, close:17}
+  ];
+
+  function nyParts(){
+    try{
+      var fmt = new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hour12:false});
+      var ps = fmt.formatToParts(new Date());
+      var o={}; ps.forEach(function(p){o[p.type]=p.value;});
+      var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+      var h = parseInt(o.hour,10); if(h===24) h=0;
+      return {dow:map[o.weekday], h:h, m:parseInt(o.minute,10)};
+    }catch(e){
+      var dt=new Date(); return {dow:dt.getDay(), h:dt.getHours(), m:dt.getMinutes()};
+    }
+  }
+
+  function computeStatus(){
+    var p = nyParts();
+    var t = HOURS[p.dow];
+    var nowMin = p.h*60 + p.m;
+    var isOpen = false, msg = '';
+    if(t.open !== null){
+      var oM = t.open*60, cM = t.close*60;
+      if(nowMin >= oM && nowMin < cM){
+        isOpen = true;
+        var mins = cM - nowMin;
+        msg = mins <= 60 ? ('Open now, closes soon') : ('Open now until ' + fmtHr(t.close));
+      }
+    }
+    if(!isOpen){
+      // find next open day
+      var next=null;
+      for(var i=1;i<=7;i++){
+        var nd = HOURS[(p.dow+i)%7];
+        if(nd.open!==null){ next = {day: nd.d, hr: fmtHr(nd.open), same:false}; break; }
+      }
+      // opens later today?
+      if(t.open!==null && nowMin < t.open*60){
+        msg = 'Closed now, opens ' + fmtHr(t.open) + ' today';
+      } else if(next){
+        msg = 'Closed now, opens ' + (i===1? '' : '') + next.hr + ' ' + next.day;
+      } else {
+        msg = 'Closed now';
+      }
+    }
+    return {open:isOpen, msg:msg, dow:p.dow};
+  }
+
+  function fmtHr(h24){
+    var ap = h24 >= 12 ? 'PM':'AM';
+    var h = h24 % 12; if(h===0) h=12;
+    return h + ' ' + ap;
+  }
+
+  function paintStatus(){
+    var s = computeStatus();
+    [['statusPill','statusText'],['statusPill2','statusText2']].forEach(function(ids){
+      var pill = document.getElementById(ids[0]); var txt = document.getElementById(ids[1]);
+      if(!pill) return;
+      pill.classList.remove('open','closed');
+      pill.classList.add(s.open ? 'open':'closed');
+      txt.textContent = s.open ? (ids[0]==='statusPill2' ? 'Open now' : s.msg) : (ids[0]==='statusPill2' ? 'Closed' : s.msg);
+    });
+
+    // build hours list
+    var hl = document.getElementById('hoursList');
+    if(hl){
+      var order = [1,2,3,4,5,6,0]; // Mon..Sat..Sun
+      hl.innerHTML = order.map(function(idx){
+        var row = HOURS[idx];
+        var today = idx === s.dow;
+        return '<div class="hr'+(today?' today':'')+'"><span class="d">'+row.d+'</span><span>'+row.label+'</span></div>';
+      }).join('');
+    }
+  }
+  paintStatus();
+  setInterval(paintStatus, 60000);
+
+  /* ===================================================================
+     SIGNATURE: road-to-license stepper, car animates along the path
+  =================================================================== */
+  var path = document.getElementById('roadPath');
+  var prog = document.getElementById('roadProg');
+  var car  = document.getElementById('car');
+  var stops = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.rc'));
+  var driveBtn = document.getElementById('driveBtn');
+
+  var L = path.getTotalLength();
+  prog.style.setProperty('--len', L);
+  prog.style.strokeDasharray = L;
+  prog.style.strokeDashoffset = L;
+
+  // fraction along path for each stop (matched to the SVG anchor points)
+  var STOP_T = [0, 0.345, 0.66, 1.0];
+
+  function pointAt(frac){
+    var p = path.getPointAtLength(frac * L);
+    return p;
+  }
+
+  function placeCar(frac){
+    var p = pointAt(Math.max(0,Math.min(1,frac)));
+    // heading for slight rotation
+    var ahead = pointAt(Math.min(1, frac + 0.004));
+    var ang = Math.atan2(ahead.y - p.y, ahead.x - p.x) * 180/Math.PI;
+    car.setAttribute('transform','translate('+p.x.toFixed(2)+','+p.y.toFixed(2)+') rotate('+ang.toFixed(1)+')');
+  }
+  function setProgress(frac){
+    prog.style.strokeDashoffset = L * (1 - frac);
+  }
+
+  var current = 0;
+  function activate(i, frac){
+    current = i;
+    stops.forEach(function(s,si){
+      s.classList.toggle('active', si===i);
+      s.classList.toggle('done', si < i);
+    });
+    cards.forEach(function(c,ci){ c.setAttribute('data-on', ci===i ? 'true':'false'); });
+    setProgress(frac !== undefined ? frac : STOP_T[i]);
+    placeCar(frac !== undefined ? frac : STOP_T[i]);
+  }
+
+  // initial
+  activate(0);
+
+  // click / keyboard on stops
+  stops.forEach(function(s){
+    s.addEventListener('click', function(){ animateTo(parseInt(s.getAttribute('data-i'),10)); });
+    s.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); animateTo(parseInt(s.getAttribute('data-i'),10)); } });
+  });
+  // click cards too
+  cards.forEach(function(c,ci){ c.addEventListener('click', function(){ animateTo(ci); }); });
+
+  // Cancelable, time-based animation. A new request interrupts any in-flight
+  // run rather than locking out (avoids a stalled rAF wedging the control).
+  var animToken = 0;
+  var queueTimer = null;
+  function now(){ return (window.performance && performance.now) ? performance.now() : Date.now(); }
+
+  function animateTo(target, onDone){
+    if(queueTimer){ clearTimeout(queueTimer); queueTimer = null; }
+    var myToken = ++animToken;                 // invalidates any prior run
+    var from = STOP_T[current];
+    var to = STOP_T[target];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // light up target card immediately for responsiveness
+    cards.forEach(function(c,ci){ c.setAttribute('data-on', ci===target ? 'true':'false'); });
+    if(reduce || from === to){ activate(target); if(onDone) onDone(); return; }
+
+    var startT = now();
+    var dur = 650 + Math.abs(to-from) * 600;
+    // setTimeout ticker (not pure rAF) so the loop always advances even when the
+    // tab is backgrounded or the compositor isn't painting; time-based so it stays
+    // smooth at any tick rate.
+    function step(){
+      if(myToken !== animToken) return;        // a newer request took over
+      var p = Math.min(1, (now()-startT)/dur);
+      var e = p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2; // easeInOutQuad
+      var frac = from + (to-from)*e;
+      setProgress(frac);
+      placeCar(frac);
+      stops.forEach(function(s,si){
+        s.classList.toggle('done', STOP_T[si] < frac - 0.001 && si!==target);
+        s.classList.toggle('active', false);
+      });
+      if(p<1){ setTimeout(step, 16); }
+      else { current = target; activate(target); if(onDone) onDone(); }
+    }
+    step();
+  }
+
+  // "Drive the route" plays the full journey end to end
+  driveBtn.addEventListener('click', function(){
+    if(queueTimer){ clearTimeout(queueTimer); queueTimer = null; }
+    if(current >= 3){ activate(0); }
+    function playNext(){
+      if(current >= 3) return;
+      animateTo(current + 1, function(){
+        if(current < 3){ queueTimer = setTimeout(playNext, 480); }
+      });
+    }
+    queueTimer = setTimeout(playNext, 120);
+  });
+
+  // auto-advance once when section first scrolls into view (gentle demo)
+  var rmSection = document.getElementById('roadmap');
+  var played = false;
+  var rmIO = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !played){
+        played = true;
+        setTimeout(function(){ if(current===0){ animateTo(1); } }, 700);
+      }
+    });
+  },{threshold:.35});
+  rmIO.observe(rmSection);
+
+  // recompute path length on resize (viewBox keeps geometry stable, but be safe)
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){
+      L = path.getTotalLength();
+      prog.style.setProperty('--len', L);
+      prog.style.strokeDasharray = L;
+      activate(current);
+    }, 180);
+  });
+
+})();
+</script>
+</body>
+</html>
