@@ -1,7 +1,8 @@
 node_modules/
 .next/
-.vercel/
+out/
+.vercel
+.DS_Store
 .env
 .env.*
 dist/
-.DS_Store
